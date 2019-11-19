@@ -22,7 +22,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
-        webSocketHandlerRegistry.addHandler(textHandler, "/conversation/*")
+        webSocketHandlerRegistry.addHandler(textHandler, "/conversation/*").setAllowedOrigins("*")
                 .addInterceptors(idInterceptor());;
     }
     @Bean
