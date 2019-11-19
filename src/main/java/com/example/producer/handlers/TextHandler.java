@@ -1,6 +1,7 @@
 package com.example.producer.handlers;
 
 import com.example.producer.service.ConversationServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -18,8 +19,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class TextHandler extends TextWebSocketHandler {
-    private Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
-    private Map<String, String> idToSession = new ConcurrentHashMap<>();
+
+    public Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
+    private Map<String, String> sessions_to_id = new ConcurrentHashMap<>();
     private ConversationServiceImpl conversationService;
 
     public TextHandler(){
